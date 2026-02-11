@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh-Check | Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+        
+        :root {
+            --lemon: #eab308;
+            --fresh-green: #22c55e;
+            --decay-orange: #f97316;
+            --expired-red: #ef4444;
+        }
+
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background-color: #020617; 
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--fresh-green);
+            background: rgba(34, 197, 94, 0.05);
+        }
+
+        .lemon-logo {
+            width: 60px;
+            height: 70px;
+            background: var(--lemon);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+        }
+
+        .leaf-f, .leaf-c {
+            position: absolute;
+            top: -15px;
+            font-weight: 900;
+            color: var(--fresh-green);
+            font-size: 1.2rem;
+        }
+        .leaf-f { left: 10px; transform: rotate(-20deg); }
+        .leaf-c { right: 10px; transform: rotate(20deg); }
+
+        .slide-container { min-height: 100vh; padding: 100px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        .stat-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--fresh-green);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 glass-card bg-black/50 py-4 px-8 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="lemon-logo">
+                <span class="leaf-f">F</span>
+                <span class="leaf-c">C</span>
+            </div>
+            <div>
+                <h1 class="text-2xl font-black tracking-tighter">FRESH-CHECK</h1>
+                <p class="text-[10px] text-green-400 font-bold tracking-[0.2em]">BY LIAM & SHRIYANSH</p>
+            </div>
+        </div>
+        <div class="hidden lg:flex gap-6 text-xs font-bold uppercase">
+            <a href="#slide1" class="hover:text-green-400 transition">Slide 1</a>
+            <a href="#slide3" class="hover:text-green-400 transition">Product</a>
+            <a href="#slide6" class="hover:text-green-400 transition">Financials</a>
+            <a href="#slide9" class="bg-green-500 text-black px-4 py-2 rounded-full font-black">THE ASK</a>
+        </div>
+    </nav>
+
+    <section id="slide1" class="slide-container flex items-center justify-center text-center">
+        <div class="animate__animated animate__fadeIn">
+            <div class="lemon-logo mx-auto mb-8 scale-[2]">
+                <span class="leaf-f">F</span>
+                <span class="leaf-c">C</span>
+            </div>
+            <h1 class="text-8xl font-black mb-4 tracking-tighter">FRESH-CHECK</h1>
+            <h2 class="text-3xl font-light text-slate-400 mb-8 italic">"Know Before It's a No Go"</h2>
+            <div class="h-1 w-48 bg-green-500 mx-auto mb-8"></div>
+            <p class="text-xl font-bold tracking-widest text-slate-500 uppercase">Presented by: Liam Agajan & Shriyansh</p>
+        </div>
+    </section>
+
+    <section id="slide2" class="slide-container">
+        <div class="container mx-auto">
+            <h2 class="text-5xl font-black mb-12 text-center text-red-500">The Problem</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-10 rounded-3xl">
+                    <h3 class="text-6xl font-black text-white mb-4">30%</h3>
+                    <p class="text-slate-400">Of household groceries are thrown away annually because people "guess" they are expired.</p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl border-l-4 border-red-500">
+                    <h3 class="text-2xl font-bold mb-4 italic">The "Sniff Test" Failure</h3>
+                    <p class="text-slate-400">Bacteria like E. coli and Salmonella are odorless. If you can smell it, it's already too late. Smelling is not science.</p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl border-l-4 border-blue-500">
+                    <h3 class="text-2xl font-bold mb-4">The Plastic Plague</h3>
+                    <p class="text-slate-400">Single-use wraps destroy the ocean and fail to provide a true airtight seal, accelerating decay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="slide3" class="slide-container bg-slate-900/50">
+        <div class="container mx-auto">
+            <h2 class="text-5xl font-black mb-12 text-green-400">The Solution</h2>
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <h4 class="font-black text-xl mb-2 uppercase">Universal Adaptive Fit</h4>
+                        <p class="text-slate-400 text-sm">Engineered from medical-grade, high-tension silicone. One lid stretches to fit any container from a small ramekin to a large pasta pot.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-green-500">
+                        <h4 class="font-black text-xl mb-2 uppercase text-green-400">Molecular Smart Sensing</h4>
+                        <p class="text-slate-400 text-sm">Integrated Chemi-resistive sensors detect parts-per-billion of Methane and Ethylene gases emitted during organic breakdown.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <h4 class="font-black text-xl mb-2 uppercase">Real-Time Traffic Light UI</h4>
+                        <div class="flex gap-4 mt-4">
+                            <div class="px-3 py-1 bg-green-500/20 text-green-500 rounded-full text-xs font-bold">Green: Fresh</div>
+                            <div class="px-3 py-1 bg-orange-500/20 text-orange-500 rounded-full text-xs font-bold">Orange: Decaying</div>
+                            <div class="px-3 py-1 bg-red-500/20 text-red-500 rounded-full text-xs font-bold">Red: Expired</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="w-full aspect-square bg-green-500/10 rounded-full animate-pulse-slow flex items-center justify-center">
+                        <div class="glass-card w-64 h-64 rounded-full border-4 border-green-500 flex flex-col items-center justify-center">
+                            <span class="text-5xl font-black">9.5</span>
+                            <span class="text-xs uppercase font-bold text-slate-500">Days Fresh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="slide4" class="slide-container">
+        <div class="container mx-auto grid md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-4xl font-black mb-8 border-b-2 border-white/10 pb-4">Operations</h2>
+                <ul class="space-y-6">
+                    <li class="flex gap-4"><span class="text-green-400 font-bold">Location:</span> Produced in Austin, Texas in an ISO-Certified clean room facility.</li>
+                    <li class="flex gap-4"><span class="text-green-400 font-bold">Sales:</span> Shopify-integrated website and Amazon Brand Registry protection.</li>
+                    <li class="flex gap-4"><span class="text-green-400 font-bold">Logistics:</span> 3PL partner provides nationwide 2-day fulfillment.</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-4xl font-black mb-8 border-b-2 border-white/10 pb-4">Target Market</h2>
+                <div class="space-y-4">
+                    <div class="p-4 bg-white/5 rounded-xl border border-white/10">
+                        <p class="font-bold">Primary: Busy Parents (25-45)</p>
+                        <p class="text-xs text-slate-500 uppercase">Focus: Time saving & family health.</p>
+                    </div>
+                    <div class="p-4 bg-white/5 rounded-xl border border-white/10">
+                        <p class="font-bold">Secondary: Zero-Waste Eco-Conscious</p>
+                        <p class="text-xs text-slate-500 uppercase">Focus: Eliminating plastics.</p>
+                    </div>
+                    <div class="mt-6 p-4 bg-green-500/10 rounded-xl border border-green-500/30">
+                        <p class="text-green-400 font-black italic">The Market is growing 15% annually—don't miss the wave.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="slide6" class="slide-container bg-slate-900">
+        <div class="container mx-auto text-center mb-16">
+            <h2 class="text-6xl font-black mb-2 italic">Financial Breakdown</h2>
+            <p class="text-slate-500 uppercase tracking-[0.5em] text-xs">Profits & Propriety</p>
+        </div>
+        <div class="container mx-auto grid md:grid-cols-4 gap-6 mb-20">
+            <div class="glass-card p-8 rounded-3xl text-center">
+                <p class="text-xs font-bold text-slate-500 mb-2">COST</p>
+                <p class="text-4xl font-black">$6.00</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl text-center border-2 border-green-500">
+                <p class="text-xs font-bold text-slate-500 mb-2">RETAIL</p>
+                <p class="text-4xl font-black">$24.99</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl text-center">
+                <p class="text-xs font-bold text-slate-500 mb-2">PROFIT</p>
+                <p class="text-4xl font-black text-green-400">76%</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl text-center">
+                <p class="text-xs font-bold text-slate-500 mb-2">CAC</p>
+                <p class="text-4xl font-black">$5.00</p>
+            </div>
+        </div>
+        <div class="container mx-auto max-w-4xl glass-card p-10 rounded-[40px] flex flex-col md:flex-row gap-10 items-center">
+            <div class="md:w-1/2">
+                <h3 class="text-2xl font-black mb-4 uppercase">Competitive Advantage</h3>
+                <p class="text-slate-400 text-sm mb-4">Competitors offer "Static" storage. Fresh-Check offers <strong>"Active" monitoring</strong>. Our Utility Patent for "Integrated Gas-Sensing Silicone Membrane" locks out copycats.</p>
+                <span class="px-4 py-1 bg-blue-500 text-xs font-black rounded-full uppercase">Utility Patent Pending</span>
+            </div>
+            <div class="md:w-1/2 text-right">
+                <h3 class="text-4xl font-black">5+ YEARS</h3>
+                <p class="text-xs font-bold text-slate-500">LIFESPAN | DISHWASHER SAFE</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="slide8" class="slide-container">
+        <div class="container mx-auto text-center mb-20">
+            <h2 class="text-5xl font-black mb-4">Scaling To The Moon</h2>
+            <div class="flex justify-center gap-8 mt-10">
+                <div class="flex flex-col items-center"><div class="text-3xl mb-2">🤳</div><span class="text-[10px] font-bold">CLEAN-TOK</span></div>
+                <div class="flex flex-col items-center"><div class="text-3xl mb-2">🥗</div><span class="text-[10px] font-bold">MEAL-KITS</span></div>
+                <div class="flex flex-col items-center"><div class="text-3xl mb-2">🔍</div><span class="text-[10px] font-bold">SEO ADDS</span></div>
+            </div>
+        </div>
+
+        <div id="slide9" class="container mx-auto max-w-5xl bg-gradient-to-br from-green-600 to-green-900 p-1 rounded-[50px] shadow-[0_0_100px_rgba(34,197,94,0.3)]">
+            <div class="bg-black rounded-[46px] p-16 flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2 space-y-6">
+                    <h2 class="text-7xl font-black italic">THE ASK.</h2>
+                    <p class="text-3xl font-light text-green-400 font-black tracking-tight">$200,000 for 12% Equity</p>
+                    <div class="space-y-2 text-slate-400 font-bold uppercase text-xs tracking-widest">
+                        <p>✓ 50% Inventory Expansion</p>
+                        <p>✓ 30% App R&D</p>
+                        <p>✓ 20% Marketing Blitz</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 w-full glass-card p-10 rounded-3xl text-center space-y-4">
+                    <p class="text-xs font-bold uppercase tracking-widest text-slate-500">Ready to partner with</p>
+                    <h3 class="text-3xl font-black">LIAM & SHRIYANSH?</h3>
+                    <button class="w-full bg-green-500 text-black py-4 rounded-2xl font-black text-xl hover:scale-105 transition shadow-xl" onclick="alert('Welcome to the Fresh-Check family, Shark!')">ACCEPT DEAL</button>
+                    <p class="text-[10px] text-slate-600 italic mt-4 italic text-center">Propriety over the "integrated sensor system" included in deal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-slate-800 font-black tracking-[1em] text-xs">
+        FRESHCHECK ENTERPRISES 2026
+    </footer>
+
+    <script>
+        // Simple smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
