@@ -3,189 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresh-Check | Liam & Shriyansh Pitch</title>
+    <title>Fresh-Check | Professional Pitch</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
-        body { font-family: 'Montserrat', sans-serif; background-color: #0a0a0a; color: #fff; overflow-x: hidden; }
-        .page { display: none; min-height: 100vh; padding-top: 100px; }
-        .active { display: block; animation: fadeIn 0.8s ease-in-out; }
-        .lemon-yellow { color: #facc15; }
-        .bg-lemon { background-color: #facc15; }
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .nav-btn { transition: all 0.3s; border-bottom: 2px solid transparent; }
-        .nav-btn:hover, .nav-active { border-color: #facc15; color: #facc15; }
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
         
-        /* Interactive Logo CSS */
-        .logo-container { position: relative; width: 60px; height: 60px; }
-        .lemon-body { width: 50px; height: 50px; background: #facc15; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; border: 3px solid #000; position: relative; }
-        .leaf-f { position: absolute; top: -15px; left: 5px; width: 25px; height: 25px; background: #22c55e; border-radius: 100% 0% 100% 0%; transform: rotate(-15deg); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 900; color: white; border: 1px solid #000; }
-        .leaf-c { position: absolute; top: -12px; right: 0px; width: 20px; height: 20px; background: #22c55e; border-radius: 0% 100% 0% 100%; transform: rotate(15deg); display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 900; color: white; border: 1px solid #000; }
+        :root {
+            --lemon: #eab308;
+            --fresh-green: #22c55e;
+            --decay-orange: #f97316;
+            --expired-red: #ef4444;
+        }
+
+        body, html { 
+            margin: 0; padding: 0;
+            font-family: 'Outfit', sans-serif; 
+            background-color: #020617; 
+            color: #f8fafc;
+            overflow-x: hidden;
+            height: 100%;
+        }
+
+        /* Interactive Canvas Background */
+        #canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+        }
+
+        .page { display: none; min-height: 100vh; padding-top: 120px; position: relative; z-index: 10; animation: fadeIn 0.8s ease; }
+        .page.active { display: block; }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-link { 
+            color: #94a3b8; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em;
+            transition: all 0.3s ease; border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-active { color: var(--fresh-green); border-bottom: 2px solid var(--fresh-green); }
+
+        /* Tech Indicator Bars */
+        .indicator-group { margin-top: 20px; }
+        .bar-label { display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; margin-bottom: 4px; }
+        .bar-container { height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .bar-fill { height: 100%; transition: width 2s ease-out; }
+
+        /* Animation for logo */
+        .logo-float { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating { 
+            0% { transform: translateY(0px); } 
+            50% { transform: translateY(-10px); } 
+            100% { transform: translateY(0px); } 
+        }
+
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 glass py-4 px-8 flex justify-between items-center">
-        <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('home')">
-            <div class="logo-container">
-                <div class="leaf-f">F</div>
-                <div class="leaf-c">C</div>
-                <div class="lemon-body"></div>
+    <canvas id="canvas"></canvas>
+
+    <nav class="fixed w-full z-[100] py-6 px-10 flex justify-between items-center bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="flex items-center gap-4 cursor-pointer" onclick="showPage('home')">
+            <img src="https://files.oaiusercontent.com/file-K8kP86jWp0o1G5Yh9U1zXo9c?se=2024-10-24T18%3A10%3A17Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Dimage_c2f51e.png&sig=41D7rOa7Aal8p6v5Y7mYfH8Z2m%2B9lXnK2f8vO6P8o6k%3D" alt="FC Logo" class="h-12 w-auto logo-float">
+            <div class="hidden md:block">
+                <h1 class="text-xl font-black tracking-tighter leading-none">FRESH-CHECK</h1>
+                <p class="text-[8px] text-green-500 font-bold uppercase tracking-[0.3em]">Liam & Shriyansh</p>
             </div>
-            <span class="font-black text-xl tracking-tighter">FRESH-CHECK</span>
         </div>
-        <div class="hidden lg:flex gap-8 text-xs font-bold uppercase tracking-widest">
-            <button onclick="showPage('home')" class="nav-btn nav-active" id="btn-home">Intro</button>
-            <button onclick="showPage('problem')" class="nav-btn" id="btn-problem">Problem</button>
-            <button onclick="showPage('product')" class="nav-btn" id="btn-product">Solution</button>
-            <button onclick="showPage('market')" class="nav-btn" id="btn-market">Market</button>
-            <button onclick="showPage('finance')" class="nav-btn" id="btn-finance">Financials</button>
-            <button onclick="showPage('ask')" class="bg-lemon text-black px-6 py-2 rounded-full font-black hover:scale-105 transition">The Ask</button>
+        <div class="flex gap-8 uppercase">
+            <button onclick="showPage('home')" class="nav-link nav-active" id="n-home">Home</button>
+            <button onclick="showPage('problem')" class="nav-link" id="n-problem">The Crisis</button>
+            <button onclick="showPage('product')" class="nav-link" id="n-product">Technology</button>
+            <button onclick="showPage('market')" class="nav-link" id="n-market">Targeting</button>
+            <button onclick="showPage('business')" class="nav-link" id="n-business">Financials</button>
+            <button onclick="showPage('ask')" class="nav-link text-white border-white/20 px-4" id="n-ask">THE DEAL</button>
         </div>
     </nav>
 
-    <div id="home" class="page active container mx-auto px-6 flex flex-col items-center justify-center text-center">
-        <div class="animate__animated animate__zoomIn">
-            <div class="logo-container scale-[2.5] mb-16 mx-auto">
-                <div class="leaf-f">F</div><div class="leaf-c">C</div><div class="lemon-body"></div>
-            </div>
-            <h1 class="text-7xl md:text-9xl font-black mb-4">FRESH-CHECK</h1>
-            <h2 class="text-2xl md:text-3xl font-light italic lemon-yellow mb-12">"Know Before It's a No Go"</h2>
-            <div class="flex gap-4 justify-center text-slate-400 font-bold tracking-widest uppercase border-t border-white/10 pt-8">
-                <span>Liam Agajan</span>
-                <span class="text-lemon">●</span>
-                <span>Shriyansh</span>
+    <main id="home" class="page active flex flex-col items-center justify-center text-center">
+        <div class="animate__animated animate__fadeInUp">
+            <h1 class="text-[12vw] font-black leading-none tracking-tighter text-white drop-shadow-2xl">FRESH-CHECK</h1>
+            <p class="text-2xl font-light tracking-[1em] text-green-500 uppercase mt-[-20px] mb-10">Know Before It's a No Go</p>
+            <p class="text-slate-500 font-bold text-sm tracking-widest uppercase">Move your mouse to interact with the freshness</p>
+        </div>
+    </main>
+
+    <div id="problem" class="page px-10">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-7xl font-black mb-16 italic text-red-500">The Pain Point.</h2>
+            <div class="grid lg:grid-cols-3 gap-10">
+                <div class="glass-card p-12 rounded-[40px] border-t-4 border-red-500">
+                    <h3 class="text-8xl font-black text-white mb-6">30%</h3>
+                    <p class="text-slate-400 leading-relaxed">Average household grocery waste. Families throw away food because they "think" it is bad, costing the average household $1,500 per year.</p>
+                </div>
+                <div class="glass-card p-12 rounded-[40px]">
+                    <h3 class="text-3xl font-black mb-6 uppercase text-red-500">The "Sniff Test" Failure</h3>
+                    <p class="text-slate-400 mb-6">Smelling food is not scientific. Bacteria like E. coli or Salmonella are odorless. By the time you smell rot, you've already been at risk for 48 hours.</p>
+                </div>
+                <div class="glass-card p-12 rounded-[40px]">
+                    <h3 class="text-3xl font-black mb-6 uppercase">Plastic Destructon</h3>
+                    <p class="text-slate-400">Single-use wraps and foil don't create airtight seals. They allow oxygen in (speeding decay) and microplastics out (poisoning food).</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="problem" class="page container mx-auto px-6">
-        <h2 class="text-5xl font-black mb-16 text-center">The <span class="text-red-500">Crisis</span></h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass p-10 rounded-3xl border-t-4 border-red-500">
-                <h3 class="text-4xl font-black mb-4">30%</h3>
-                <p class="text-slate-400">Of household groceries are wasted annually because families "guess" expiration dates.</p>
-            </div>
-            <div class="glass p-10 rounded-3xl border-t-4 border-orange-500">
-                <h3 class="text-2xl font-bold mb-4 italic">Sniff Test = Failure</h3>
-                <p class="text-slate-400">Pathogens like E. coli are odorless. If you smell it, the danger has already begun.</p>
-            </div>
-            <div class="glass p-10 rounded-3xl border-t-4 border-blue-500">
-                <h3 class="text-2xl font-bold mb-4">The Plastic Plague</h3>
-                <p class="text-slate-400">Single-use wraps are eco-disasters that fail to provide a true airtight seal.</p>
+    <div id="product" class="page px-10">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-7xl font-black mb-16 italic text-green-500">The Innovation.</h2>
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="space-y-8">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h4 class="text-xl font-black text-white uppercase mb-2">Molecular Smart Sensing</h4>
+                        <p class="text-slate-400 text-sm">Our lids feature integrated nano-sensors that detect Methane and Ethylene gases at the parts-per-billion (ppb) level.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h4 class="text-xl font-black text-white uppercase mb-2">Universal Fit Membrane</h4>
+                        <p class="text-slate-400 text-sm">High-grade, BPA-free silicone stretches up to 300% of its original size to fit pots, pans, and bowls of any shape.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl border-l-4 border-blue-500">
+                        <h4 class="text-xl font-black text-white uppercase mb-2">Utility Patent #FC-TX99</h4>
+                        <p class="text-slate-400 text-sm">We have full propriety over the "Integrated Gas-Sensing Silicone Membrane" design, making us the only active monitoring lid on the market.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-12 rounded-[50px]">
+                    <h4 class="text-2xl font-black mb-10 text-center uppercase tracking-widest">Visual Status Bars</h4>
+                    <div class="indicator-group">
+                        <div class="bar-label"><span>LEVEL 1: OPTIMAL FRESHNESS</span> <span class="text-green-500">GREEN</span></div>
+                        <div class="bar-container"><div class="bar-fill bg-green-500" style="width: 100%"></div></div>
+                    </div>
+                    <div class="indicator-group">
+                        <div class="bar-label"><span>LEVEL 2: ACTIVE DECAY DETECTED</span> <span class="text-orange-500">ORANGE</span></div>
+                        <div class="bar-container"><div class="bar-fill bg-orange-500" style="width: 60%"></div></div>
+                    </div>
+                    <div class="indicator-group">
+                        <div class="bar-label"><span>LEVEL 3: HAZARDOUS / EXPIRED</span> <span class="text-red-500">RED</span></div>
+                        <div class="bar-container"><div class="bar-fill bg-red-500" style="width: 25%"></div></div>
+                    </div>
+                    <p class="text-[10px] text-slate-500 mt-10 text-center uppercase">Digital LCD screen counts down "Days Remaining Fresh" based on gas concentration.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="product" class="page container mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-            <div class="space-y-8">
-                <h2 class="text-5xl font-black text-lemon">The Smart Lid</h2>
-                <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="bg-lemon text-black font-black w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">1</div>
-                        <p><strong>Universal Fit:</strong> Medical-grade, BPA-free silicone stretches to fit any bowl or pot.</p>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="bg-lemon text-black font-black w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">2</div>
-                        <p><strong>Nano-Sensing:</strong> Integrated sensors detect Methane and Ethylene gases in real-time.</p>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="bg-lemon text-black font-black w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">3</div>
-                        <p><strong>LED Interface:</strong> Visual traffic light system: Green (Fresh), Orange (Decaying), Red (Expired).</p>
+    <div id="market" class="page px-10">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-7xl font-black mb-16 italic text-blue-500">Target Market.</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="glass-card p-12 rounded-[40px] relative overflow-hidden">
+                    <h3 class="text-3xl font-black mb-6 uppercase">Primary Audience</h3>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><strong>Busy Families (25-45):</strong> Meal-preppers who want to save time and ensure kids eat safe food.</li>
+                        <li><strong>The Clean-Tok Community:</strong> Leveraging influencers who focus on fridge organization and home optimization.</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-12 rounded-[40px]">
+                    <h3 class="text-3xl font-black mb-6 uppercase">Market Opportunity</h3>
+                    <p class="text-slate-400 mb-6">The smart kitchen appliance market is growing at 15% annually. While competitors like Tupperware offer "static" storage, Fresh-Check offers "active" monitoring.</p>
+                    <div class="bg-blue-500/10 p-6 rounded-2xl border border-blue-500/20">
+                        <p class="text-blue-400 font-bold italic text-xl">"Zero-Waste" consumers are the fastest-growing demographic in kitchenware.</p>
                     </div>
                 </div>
             </div>
-            <div class="glass p-12 rounded-[50px] text-center relative overflow-hidden">
-                <div class="absolute inset-0 bg-lemon/5 animate-pulse"></div>
-                <h3 class="text-2xl font-black mb-6 uppercase tracking-tighter">Propriety & Protection</h3>
-                <p class="text-slate-400 mb-6">We have filed a <strong>Utility Patent</strong> for our "Integrated Gas-Sensing Silicone Membrane."</p>
-                <div class="inline-block px-6 py-2 border border-lemon text-lemon rounded-full font-bold text-xs">PATENT PENDING #FC-2026</div>
+        </div>
+    </div>
+
+    <div id="business" class="page px-10">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-7xl font-black mb-16 italic text-yellow-500">The Financials.</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <p class="text-xs font-bold text-slate-500 uppercase mb-2">Cost to Make</p>
+                    <p class="text-5xl font-black">$6.00</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl text-center border-2 border-green-500">
+                    <p class="text-xs font-bold text-slate-500 uppercase mb-2">Retail Price</p>
+                    <p class="text-5xl font-black text-green-500">$24.99</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <p class="text-xs font-bold text-slate-500 uppercase mb-2">Profit/Unit</p>
+                    <p class="text-5xl font-black">$18.99</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <p class="text-xs font-bold text-slate-500 uppercase mb-2">Margin</p>
+                    <p class="text-5xl font-black text-blue-500">76%</p>
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div class="glass-card p-12 rounded-[40px]">
+                    <h3 class="text-2xl font-black mb-4 uppercase">Manufacturing & Ops</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Produced in an electronics molding facility in <strong>Austin, Texas</strong>. Orders are managed through Shopify and fulfilled by a <strong>3PL partner</strong> for nationwide shipping. Sales also utilize Amazon Brand Registry for protection.</p>
+                </div>
+                <div class="glass-card p-12 rounded-[40px]">
+                    <h3 class="text-2xl font-black mb-4 uppercase">Customer Acquisition</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Estimated CAC of $5.00 through targeted social media ads. Growth strategy includes bundling with meal-kit services like HelloFresh to capture ready-to-use customers.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="market" class="page container mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-12">
-            <div class="glass p-10 rounded-3xl">
-                <h3 class="text-3xl font-black mb-8 border-b border-white/10 pb-4">Target Market</h3>
-                <ul class="space-y-4">
-                    <li class="flex justify-between"><span>Busy Parents (25-45)</span> <span class="text-lemon">Primary</span></li>
-                    <li class="flex justify-between"><span>Zero-Waste Enthusiasts</span> <span class="text-lemon">Secondary</span></li>
-                    <li class="flex justify-between"><span>Smart Kitchen Market</span> <span class="text-green-400">+15% Annual Growth</span></li>
-                </ul>
-            </div>
-            <div class="glass p-10 rounded-3xl">
-                <h3 class="text-3xl font-black mb-8 border-b border-white/10 pb-4">Operations</h3>
-                <p class="text-slate-400 mb-6"><strong>Manufactured:</strong> High-tech electronics facility in Austin, Texas.</p>
-                <p class="text-slate-400"><strong>Sales:</strong> E-Commerce via Shopify and Amazon Brand Registry. Fulfillment handled by 3PL partners.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="finance" class="page container mx-auto px-6 text-center">
-        <h2 class="text-6xl font-black mb-16 italic">Financial <span class="text-lemon">Clarity</span></h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            <div class="glass p-8 rounded-2xl">
-                <p class="text-xs font-bold text-slate-500 mb-2 uppercase">Unit Cost</p>
-                <p class="text-4xl font-black">$6.00</p>
-            </div>
-            <div class="glass p-8 rounded-2xl border-2 border-lemon">
-                <p class="text-xs font-bold text-slate-500 mb-2 uppercase">Retail Price</p>
-                <p class="text-4xl font-black">$24.99</p>
-            </div>
-            <div class="glass p-8 rounded-2xl">
-                <p class="text-xs font-bold text-slate-500 mb-2 uppercase">Margin</p>
-                <p class="text-4xl font-black text-green-400">76%</p>
-            </div>
-            <div class="glass p-8 rounded-2xl">
-                <p class="text-xs font-bold text-slate-500 mb-2 uppercase">Ad Cost (CAC)</p>
-                <p class="text-4xl font-black">$5.00</p>
-            </div>
-        </div>
-        <div class="glass p-10 rounded-3xl max-w-4xl mx-auto text-left">
-            <h4 class="text-xl font-black mb-4 uppercase">Marketing Strategy</h4>
-            <p class="text-slate-400 text-sm">We are launching via "Clean-Tok" influencer campaigns and strategic bundling with meal-kit services like HelloFresh to capture immediate market share.</p>
-        </div>
-    </div>
-
-    <div id="ask" class="page container mx-auto px-6">
-        <div class="max-w-5xl mx-auto bg-lemon p-1 rounded-[60px] shadow-[0_0_100px_rgba(250,204,21,0.2)]">
-            <div class="bg-black rounded-[58px] p-16 flex flex-col md:flex-row items-center gap-16">
-                <div class="md:w-1/2">
-                    <h2 class="text-7xl font-black mb-6 italic uppercase">The Ask.</h2>
-                    <p class="text-4xl font-black text-lemon mb-8">$200,000 for 12%</p>
-                    <div class="space-y-3 font-bold text-slate-400 uppercase tracking-widest text-sm">
-                        <p>● 50% Inventory Scaling</p>
-                        <p>● 30% App R&D</p>
-                        <p>● 20% Marketing Blitz</p>
+    <div id="ask" class="page px-10 flex items-center justify-center">
+        <div class="max-w-5xl w-full">
+            <div class="glass-card p-20 rounded-[80px] border-2 border-green-500/50 shadow-[0_0_100px_rgba(34,197,94,0.2)] text-center">
+                <h2 class="text-9xl font-black italic text-white mb-6">THE ASK.</h2>
+                <p class="text-4xl font-bold text-green-500 mb-10 tracking-widest">$200,000 for 12% Equity</p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="p-6 bg-white/5 rounded-2xl">
+                        <p class="text-3xl font-black text-white">50%</p>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase">Inventory Scaling</p>
+                    </div>
+                    <div class="p-6 bg-white/5 rounded-2xl">
+                        <p class="text-3xl font-black text-white">30%</p>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase">App Development</p>
+                    </div>
+                    <div class="p-6 bg-white/5 rounded-2xl">
+                        <p class="text-3xl font-black text-white">20%</p>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase">Marketing Blitz</p>
                     </div>
                 </div>
-                <div class="md:w-1/2 glass p-10 rounded-3xl text-center space-y-6">
-                    <h3 class="text-2xl font-black">Join the Revolution.</h3>
-                    <p class="text-sm text-slate-500">Liam Agajan & Shriyansh are ready to disrupt the $12B kitchen storage industry.</p>
-                    <button class="w-full bg-lemon text-black py-4 rounded-xl font-black text-xl hover:scale-105 transition" onclick="alert('Deal accepted! Welcome to Fresh-Check.')">SECURE THE DEAL</button>
-                </div>
+
+                <button class="bg-green-500 text-black text-3xl font-black px-12 py-6 rounded-3xl hover:scale-110 transition shadow-2xl" onclick="alert('Welcome to the Fresh-Check Team, Shark!')">ACCEPT THE DEAL</button>
+                <p class="text-slate-500 mt-10 text-xs italic italic">"Partner with Liam & Shriyansh to revolutionize food storage."</p>
             </div>
         </div>
     </div>
 
     <script>
+        // Page Switching Logic
         function showPage(pageId) {
-            // Hide all pages
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            // Remove active nav styling
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('nav-active'));
-            
-            // Show target page
             document.getElementById(pageId).classList.add('active');
-            // Add active nav styling
-            const activeBtn = document.getElementById('btn-' + pageId);
-            if(activeBtn) activeBtn.classList.add('nav-active');
+            
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('nav-active'));
+            document.getElementById('n-' + pageId).classList.add('nav-active');
             
             window.scrollTo(0,0);
         }
+
+        // INTERACTIVE PAINT ANIMATION ENGINE
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 8 + 2;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
+                this.color = Math.random() > 0.5 ? '#22c55e' : '#eab308';
+                this.opacity = 1;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.1;
+                this.opacity -= 0.01;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            for (let i = 0; i < 3; i++) {
+                particles.push(new Particle(e.x, e.y));
+            }
+        });
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].opacity <= 0) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
     </script>
 </body>
 </html>
